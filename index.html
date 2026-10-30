@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Reefer Route Empire — Premium Beats, Fresh Bites & Exclusive Drip. Pay with Bitcoin, Pi Network, M-Pesa or Bank Transfer.">
+<meta name="theme-color" content="#07130b">
+<title>REEFER ROUTE EMPIRE — Beats • Bites • Drip</title>
+<link rel="icon" type="image/png" href="assets/reefer-route-empire-logo.png">
+<link rel="icon" type="image/png" href="assets/reefer-route-empire-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-900:#07130b; --bg-800:#0a1c10; --bg-700:#0e2a17;
+  --gold:#d4af37; --gold-2:#f2d57e; --gold-3:#a97e1c;
+  --cream:#f4ecd8; --muted:#a8bfa9;
+  --card:#0d2415; --line:rgba(212,175,55,.22);
+  --grad-gold:linear-gradient(135deg,#f2d57e,#d4af37 45%,#a97e1c);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+[hidden]{display:none!important}
+body{
+  font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color:var(--cream);line-height:1.6;overflow-x:hidden;
+  background:
+    radial-gradient(1100px 700px at 85% -10%, #12351e 0%, transparent 60%),
+    radial-gradient(900px 600px at -10% 40%, #0e2a17 0%, transparent 55%),
+    linear-gradient(180deg,#08150c,#07130b);
+  background-attachment:fixed;
+}
+/* subtle cannabis-leaf wallpaper */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg transform='translate(110 118)' fill='%23d4af37' fill-opacity='0.055'%3E%3Cpath d='M0 0 C8 -28 11 -62 0 -100 C-11 -62 -8 -28 0 0 Z'/%3E%3Cpath transform='rotate(38) scale(0.85)' d='M0 0 C8 -28 11 -62 0 -100 C-11 -62 -8 -28 0 0 Z'/%3E%3Cpath transform='rotate(-38) scale(0.85)' d='M0 0 C8 -28 11 -62 0 -100 C-11 -62 -8 -28 0 0 Z'/%3E%3Cpath transform='rotate(72) scale(0.68)' d='M0 0 C8 -28 11 -62 0 -100 C-11 -62 -8 -28 0 0 Z'/%3E%3Cpath transform='rotate(-72) scale(0.68)' d='M0 0 C8 -28 11 -62 0 -100 C-11 -62 -8 -28 0 0 Z'/%3E%3Cpath transform='rotate(104) scale(0.45)' d='M0 0 C8 -28 11 -62 0 -100 C-11 -62 -8 -28 0 0 Z'/%3E%3Cpath transform='rotate(-104) scale(0.45)' d='M0 0 C8 -28 11 -62 0 -100 C-11 -62 -8 -28 0 0 Z'/%3E%3Cpath d='M0 0 L0 15' stroke='%23d4af37' stroke-opacity='0.055' stroke-width='3'/%3E%3C/g%3E%3C/svg%3E") repeat;
+  background-size:220px 220px;
+}
+body>*{position:relative;z-index:1}
+::selection{background:var(--gold);color:#1a1206}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg-900)}
+::-webkit-scrollbar-thumb{background:#2a4a2f;border-radius:8px}
+::-webkit-scrollbar-thumb:hover{background:var(--gold-3)}
+
+.wrap{width:min(1180px,92%);margin-inline:auto}
+.grad{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ============ buttons ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.7rem;border-radius:14px;font-weight:600;font-size:.95rem;cursor:pointer;border:none;transition:transform .25s,box-shadow .25s,border-color .25s,color .25s;text-decoration:none;font-family:inherit;letter-spacing:.02em}
+.btn.gold{background:var(--grad-gold);color:#201602;box-shadow:0 8px 24px -10px rgba(212,175,55,.55)}
+.btn.gold:hover{transform:translateY(-2px);box-shadow:0 14px 32px -10px rgba(212,175,55,.7)}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--cream)}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold-2)}
+.btn.big{padding:1.05rem 2.1rem;font-size:1.02rem}
+.btn.w-full{width:100%}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+
+/* ============ ticker ============ */
+.ticker{overflow:hidden;background:var(--grad-gold);color:#1a1206;padding:.5rem 0;font-weight:600;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 4px 18px -8px rgba(212,175,55,.5)}
+.ticker-track{display:flex;gap:3rem;white-space:nowrap;width:max-content;animation:ticker 28s linear infinite}
+.ticker-track span{display:flex;gap:3rem}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* ============ nav ============ */
+.nav{position:sticky;top:0;z-index:60;background:rgba(7,19,11,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 0}
+.brand{display:flex;align-items:center;gap:.65rem;font-family:'Cinzel',serif;font-weight:900;font-size:1rem;letter-spacing:.1em;color:var(--cream);text-decoration:none}
+.brand svg{flex:none}
+.brand-logo{width:38px;height:38px;border-radius:50%;object-fit:cover;border:1px solid var(--line);flex:none;box-shadow:0 0 14px rgba(212,175,55,.28)}
+.hero-logo{display:block;width:clamp(150px,22vw,210px);height:auto;border-radius:18px;border:1px solid rgba(212,175,55,.45);box-shadow:0 0 0 6px rgba(212,175,55,.08),0 24px 60px -18px rgba(212,175,55,.4);margin:0 auto 1.4rem}
+.nav-links{display:flex;gap:1.7rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.88rem;font-weight:500;letter-spacing:.05em;transition:color .2s}
+.nav-links a:hover{color:var(--gold-2)}
+.nav-actions{display:flex;align-items:center;gap:.6rem}
+.icon-btn{background:transparent;border:1px solid var(--line);color:var(--cream);width:42px;height:42px;border-radius:12px;cursor:pointer;display:grid;place-items:center;position:relative;transition:border-color .2s,color .2s;font-size:1.05rem;font-family:inherit}
+.icon-btn:hover{border-color:var(--gold);color:var(--gold-2)}
+.cart-badge{position:absolute;top:-7px;right:-7px;background:var(--grad-gold);color:#1a1206;font-size:.66rem;font-weight:700;min-width:19px;height:19px;border-radius:999px;display:grid;place-items:center;padding:0 4px}
+#cartBtn.bump{animation:bump .45s ease}
+@keyframes bump{30%{transform:scale(1.18)}}
+#menuBtn{display:none}
+
+/* ============ hero ============ */
+.hero{position:relative;padding:clamp(4rem,9vw,7rem) 0 clamp(2.5rem,5vw,4rem);text-align:center;overflow:hidden}
+.hero-leaf{position:absolute;top:52%;right:-70px;transform:translateY(-50%) rotate(16deg);width:min(430px,46vw);opacity:.07;pointer-events:none}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;color:var(--gold);font-size:.75rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase}
+.eyebrow::before,.eyebrow::after{content:'';width:26px;height:1px;background:var(--gold);opacity:.7}
+.hero h1{font-family:'Cinzel',serif;font-size:clamp(2.3rem,7.2vw,5rem);font-weight:900;letter-spacing:.05em;line-height:1.1;margin:.7rem 0 1rem}
+.tagline{font-size:clamp(1rem,2.2vw,1.18rem);color:var(--muted);max-width:640px;margin:0 auto 2.1rem}
+.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
+.hero-stats{display:flex;gap:clamp(1.4rem,4vw,3rem);justify-content:center;flex-wrap:wrap}
+.stat b{display:block;font-family:'Cinzel',serif;font-size:1.5rem;color:var(--gold-2)}
+.stat span{font-size:.72rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+
+/* ============ collab banner ============ */
+.collab{padding:clamp(1.5rem,3vw,2.5rem) 0}
+.collab-card{position:relative;display:grid;grid-template-columns:auto 1fr;gap:2.2rem;align-items:center;background:linear-gradient(120deg,rgba(212,175,55,.16),rgba(212,175,55,.05) 45%,rgba(18,51,30,.65)),var(--card);border:1px solid rgba(212,175,55,.5);border-radius:26px;padding:clamp(1.6rem,4vw,2.6rem);overflow:hidden}
+.collab-card::after{content:'';position:absolute;top:0;left:-80%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(242,213,126,.14),transparent);animation:shimmer 4.8s ease-in-out infinite;pointer-events:none}
+@keyframes shimmer{0%{left:-80%}55%,100%{left:135%}}
+.collab-art{width:190px;height:190px;border-radius:22px;background:radial-gradient(circle at 30% 25%,#2b2005,#0d0901 72%);border:1px solid rgba(212,175,55,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem}
+.collab-art b{font-family:'Cinzel',serif;font-size:2.6rem;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.collab-art span{font-size:.62rem;letter-spacing:.3em;color:var(--gold-2);text-transform:uppercase}
+.collab-info h2{font-family:'Cinzel',serif;font-size:clamp(1.4rem,3.4vw,2.1rem);letter-spacing:.03em;margin:.4rem 0 .6rem}
+.collab-info h2 em{font-style:normal;color:var(--gold-2)}
+.collab-info>p{color:var(--muted);font-size:.95rem;max-width:560px}
+.collab-meta{display:inline-flex;gap:.9rem;flex-wrap:wrap;margin:.9rem 0 1.2rem;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-2)}
+.collab-meta span{border:1px solid var(--line);border-radius:999px;padding:.3rem .8rem;background:rgba(212,175,55,.06)}
+
+/* ============ sections & cards ============ */
+section.block{padding:clamp(3rem,7vw,5.2rem) 0;scroll-margin-top:90px}
+.sec-head{max-width:700px;margin:0 auto 2.8rem;text-align:center}
+.sec-head h2{font-family:'Cinzel',serif;font-size:clamp(1.7rem,4vw,2.7rem);letter-spacing:.03em;margin:.55rem 0 .7rem}
+.sec-sub{color:var(--muted);font-size:.96rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.4rem}
+.card{background:linear-gradient(180deg,rgba(212,175,55,.06),rgba(212,175,55,.015)),var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-6px);border-color:rgba(212,175,55,.55);box-shadow:0 24px 44px -22px rgba(0,0,0,.85)}
+.card-art{position:relative;height:185px;display:grid;place-items:center;border-bottom:1px solid var(--line);overflow:hidden}
+.card-art::after{content:'';position:absolute;inset:0;background:radial-gradient(130px 95px at 50% 62%,rgba(212,175,55,.18),transparent 72%)}
+.art-emoji{font-size:4.2rem;filter:drop-shadow(0 12px 22px rgba(0,0,0,.55));transition:transform .35s;z-index:1}
+.card:hover .art-emoji{transform:scale(1.1) rotate(-4deg)}
+.art-beats{background:linear-gradient(135deg,#123322,#0a1c10 58%,#1c2b10)}
+.art-bites{background:linear-gradient(135deg,#2a1c10,#160f08 55%,#33220d)}
+.art-drip{background:linear-gradient(135deg,#10262a,#0a1416 55%,#1a2a10)}
+.badge{position:absolute;top:12px;left:12px;z-index:2;background:var(--grad-gold);color:#1a1206;font-size:.64rem;font-weight:700;letter-spacing:.12em;padding:.3rem .65rem;border-radius:999px}
+.badge.collab{background:#14100a;color:var(--gold-2);border:1px solid var(--gold)}
+.card-art.photo{height:220px}
+.card-art.photo::after{display:none}
+.card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.card:hover .card-img{transform:scale(1.05)}
+.collab-art{overflow:hidden}
+.collab-art img{width:100%;height:100%;object-fit:cover}
+.collab-products{margin-top:clamp(2.2rem,5vw,3.5rem)}
+.ci-thumb{overflow:hidden}
+.ci-thumb img{width:100%;height:100%;object-fit:cover;border-radius:9px}
+.card-body{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
+.card-body h3{font-size:1.02rem;font-weight:600;letter-spacing:.02em}
+.card-body p{color:var(--muted);font-size:.84rem;flex:1}
+.card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:.8rem;gap:.6rem}
+.price{font-family:'Cinzel',serif;font-weight:700;color:var(--gold-2);font-size:1.02rem;white-space:nowrap}
+.add-btn{background:transparent;border:1px solid var(--gold);color:var(--gold-2);padding:.55rem 1.05rem;border-radius:11px;font-weight:600;font-size:.8rem;cursor:pointer;transition:background .2s,color .2s;font-family:inherit;white-space:nowrap}
+.add-btn:hover{background:var(--grad-gold);color:#1a1206}
+
+/* ============ trust strip ============ */
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;padding:1.6rem 0 4.5rem}
+.trust-item{display:flex;align-items:center;gap:.9rem;background:rgba(212,175,55,.045);border:1px solid var(--line);border-radius:16px;padding:1rem 1.2rem}
+.trust-item .t-ico{font-size:1.5rem}
+.trust-item b{display:block;font-size:.9rem}
+.trust-item span{font-size:.75rem;color:var(--muted)}
+
+/* ============ cart drawer ============ */
+.overlay{position:fixed;inset:0;background:rgba(3,8,5,.66);backdrop-filter:blur(3px);z-index:70;opacity:0;pointer-events:none;transition:opacity .3s}
+.overlay.show{opacity:1;pointer-events:auto}
+body.locked{overflow:hidden}
+.drawer{position:fixed;top:0;right:0;height:100vh;height:100dvh;width:min(420px,100vw);background:#0a1c10;border-left:1px solid var(--line);z-index:80;transform:translateX(105%);transition:transform .35s cubic-bezier(.22,.8,.3,1);display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.4rem;border-bottom:1px solid var(--line)}
+.drawer-head h3{font-family:'Cinzel',serif;font-size:1.05rem;letter-spacing:.06em}
+.drawer-items{flex:1;overflow-y:auto;padding:1.1rem 1.4rem;display:flex;flex-direction:column;gap:.9rem}
+.cart-item{display:grid;grid-template-columns:56px 1fr auto;gap:.9rem;align-items:center;background:rgba(212,175,55,.045);border:1px solid var(--line);border-radius:14px;padding:.7rem}
+.ci-thumb{width:56px;height:56px;border-radius:10px;display:grid;place-items:center;font-size:1.5rem}
+.ci-name{font-size:.85rem;font-weight:600}
+.ci-price{font-size:.74rem;color:var(--muted)}
+.qty{display:flex;align-items:center;gap:.45rem;margin-top:.35rem}
+.qty button{width:24px;height:24px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--cream);cursor:pointer;font-weight:700;line-height:1}
+.qty button:hover{border-color:var(--gold);color:var(--gold-2)}
+.qty span{min-width:20px;text-align:center;font-size:.88rem;font-weight:600}
+.ci-remove{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1rem;padding:.3rem}
+.ci-remove:hover{color:#ff8a7a}
+.drawer-foot{border-top:1px solid var(--line);padding:1.2rem 1.4rem;display:flex;flex-direction:column;gap:.7rem}
+.row{display:flex;justify-content:space-between;align-items:center;font-size:.95rem}
+.hint{font-size:.75rem;color:var(--muted)}
+.empty{text-align:center;color:var(--muted);padding:3rem 1rem;display:flex;flex-direction:column;gap:1.1rem;align-items:center}
+.empty .big{font-size:2.6rem}
+
+/* ============ checkout ============ */
+.checkout{padding:2.5rem 0 5rem}
+.back-link{background:none;border:none;color:var(--gold-2);cursor:pointer;font-family:inherit;font-size:.88rem;margin-bottom:1.3rem;letter-spacing:.03em}
+.back-link:hover{color:var(--cream)}
+.page-title{font-family:'Cinzel',serif;font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:1.6rem;letter-spacing:.04em}
+.checkout-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:1.6rem;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:1.6rem}
+.panel h2{font-family:'Cinzel',serif;font-size:1.12rem;margin-bottom:1.1rem;letter-spacing:.05em;color:var(--gold-2)}
+.field{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}
+.field label{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.field input,.field textarea{background:#07130b;border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem;color:var(--cream);font-family:inherit;font-size:.92rem;transition:border-color .2s;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.pay-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}
+.pay-tile{display:flex;align-items:center;gap:.8rem;padding:.85rem 1rem;border:1px solid var(--line);border-radius:14px;cursor:pointer;transition:border-color .2s,background .2s,box-shadow .2s;background:rgba(212,175,55,.03)}
+.pay-tile:hover{border-color:rgba(212,175,55,.55)}
+.pay-tile input{position:absolute;opacity:0;pointer-events:none}
+.pay-tile.sel{border-color:var(--gold);background:rgba(212,175,55,.1);box-shadow:0 0 0 1px var(--gold),0 10px 26px -14px rgba(212,175,55,.5)}
+.p-ico{flex:none;width:40px;height:40px}
+.p-ico svg{width:40px;height:40px;display:block}
+.p-txt{display:flex;flex-direction:column;line-height:1.3}
+.p-name{font-weight:600;font-size:.88rem}
+.p-sub{font-size:.7rem;color:var(--muted)}
+.pay-note{font-size:.8rem;color:var(--muted);background:rgba(212,175,55,.05);border-left:2px solid var(--gold);padding:.7rem .9rem;border-radius:0 10px 10px 0;margin:1.1rem 0}
+.sum-item{display:flex;justify-content:space-between;gap:1rem;font-size:.86rem;padding:.5rem 0;border-bottom:1px dashed rgba(212,175,55,.18)}
+.sum-item .xq{color:var(--gold-2);font-weight:600}
+.sum-total{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;font-family:'Cinzel',serif;font-size:1.15rem;color:var(--gold-2)}
+.sum-row{display:flex;justify-content:space-between;font-size:.84rem;color:var(--muted);padding:.3rem 0}
+#checkoutForm .btn.big{margin-top:.4rem}
+
+/* ============ success ============ */
+.success{text-align:center;padding:4.5rem 0 6rem}
+.check{width:88px;height:88px;border-radius:50%;background:var(--grad-gold);display:grid;place-items:center;font-size:2.4rem;font-weight:800;color:#1a1206;margin:0 auto 1.4rem;box-shadow:0 0 0 10px rgba(212,175,55,.12),0 0 60px rgba(212,175,55,.35)}
+.success-sub{color:var(--muted);margin-bottom:1.8rem}
+.success-panel{max-width:640px;margin:0 auto 2rem;text-align:left}
+.success-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* ============ footer ============ */
+footer{border-top:1px solid var(--line);background:rgba(5,13,8,.72);margin-top:3rem}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:2rem;padding:3rem 0 2rem}
+footer h4{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-2);margin-bottom:.9rem}
+footer p{font-size:.85rem;color:var(--muted)}
+footer a{display:block;color:var(--muted);text-decoration:none;font-size:.86rem;padding:.22rem 0}
+footer a:hover{color:var(--gold-2)}
+.socials{display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap}
+.socials a{border:1px solid var(--line);border-radius:10px;padding:.35rem .8rem;font-size:.78rem}
+.foot-bottom{border-top:1px solid var(--line);padding:1.2rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;font-size:.76rem;color:var(--muted)}
+.pay-icons{display:flex;gap:.5rem;align-items:center}
+.pay-icons svg{width:38px;height:26px}
+.pay-icons svg[viewBox="0 0 40 40"]{width:28px;height:28px}
+
+/* ============ toast / reveal ============ */
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,80px);background:var(--grad-gold);color:#1a1206;padding:.8rem 1.5rem;border-radius:999px;font-weight:600;font-size:.86rem;z-index:95;transition:transform .35s,opacity .35s;box-shadow:0 14px 34px -12px rgba(212,175,55,.6);opacity:0;max-width:90vw;text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+noscript div{background:#5e1f1f;color:#fff;padding:.7rem;text-align:center;font-size:.85rem}
+
+/* ============ responsive ============ */
+@media(max-width:900px){
+  #menuBtn{display:grid}
+  .nav-links{position:fixed;top:63px;left:0;right:0;background:rgba(7,19,11,.98);backdrop-filter:blur(14px);flex-direction:column;padding:1.4rem 6%;gap:1.15rem;border-bottom:1px solid var(--line);transform:translateY(-140%);transition:transform .3s;z-index:55}
+  .nav-links.open{transform:none}
+  .checkout-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .collab-card{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .collab-info>p{margin-inline:auto}
+  .hero-leaf{opacity:.045;right:-110px}
+}
+@media(max-width:560px){
+  .field-row{grid-template-columns:1fr}
+  .pay-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .hero-stats{gap:1.2rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .ticker-track,.collab-card::after{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<noscript><div>JavaScript is required to shop at the Empire — please enable it.</div></noscript>
+
+<!-- promo ticker -->
+<div class="ticker" aria-label="Promotions">
+  <div class="ticker-track">
+    <span>🌿 DONZ&amp;DOLLZ × REEFER COLLECTION DRIP — COLLAB DROP 12.12 🌿 FREE DELIVERY ON ORDERS OVER KSH 5,000 🌿 PAY WITH BITCOIN • PI NETWORK • M-PESA • BANK TRANSFER 🌿 BEATS LICENSED INSTANTLY — OWN THE MOMENT</span>
+    <span>🌿 DONZ&amp;DOLLZ × REEFER COLLECTION DRIP — COLLAB DROP 12.12 🌿 FREE DELIVERY ON ORDERS OVER KSH 5,000 🌿 PAY WITH BITCOIN • PI NETWORK • M-PESA • BANK TRANSFER 🌿 BEATS LICENSED INSTANTLY — OWN THE MOMENT</span>
+  </div>
+</div>
+
+<!-- nav -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#">
+      <img class="brand-logo" src="assets/reefer-route-empire-logo.png" alt="Reefer Route Empire logo">
+      <span>REEFER <span class="grad">ROUTE</span> EMPIRE</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#beats">Reefer Beats</a></li>
+      <li><a href="#bites">Reefer Bites</a></li>
+      <li><a href="#drip">Collection Drip</a></li>
+      <li><a href="#collab">Donz&amp;Dollz</a></li>
+      <li><a href="#foot-contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" id="cartBtn" aria-label="Open cart">🛒<span class="cart-badge">0</span></button>
+      <button class="icon-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HOME ================= -->
+<main id="homeView">
+
+  <section class="hero wrap">
+    <svg class="hero-leaf" viewBox="-75 -115 150 135" aria-hidden="true"><g fill="#d4af37"><path d="M0 0 C8 -28 11 -62 0 -100 C-11 -62 -8 -28 0 0 Z"/><path transform="rotate(38) scale(0.85)" d="M0 0 C8 -28 11 -62 0 -100 C-11 -62 -8 -28 0 0 Z"/><path transform="rotate(-38) scale(0.85)" d="M0 0 C8 -28 11 -62 0 -100 C-11 -62 -8 -28 0 0 Z"/><path transform="rotate(72) scale(0.68)" d="M0 0 C8 -28 11 -62 0 -100 C-11 -62 -8 -28 0 0 Z"/><path transform="rotate(-72) scale(0.68)" d="M0 0 C8 -28 11 -62 0 -100 C-11 -62 -8 -28 0 0 Z"/><path transform="rotate(104) scale(0.45)" d="M0 0 C8 -28 11 -62 0 -100 C-11 -62 -8 -28 0 0 Z"/><path transform="rotate(-104) scale(0.45)" d="M0 0 C8 -28 11 -62 0 -100 C-11 -62 -8 -28 0 0 Z"/></g></svg>
+    <img class="hero-logo reveal" src="assets/reefer-route-empire-logo.png" alt="Reefer Route Empire official logo — In God We Trust, Est. 2014, Nairobi Kenya">
+    <p class="eyebrow reveal">Est. 2014 • Nairobi</p>
+    <h1 class="reveal">REEFER <span class="grad">ROUTE</span><br>EMPIRE</h1>
+    <p class="tagline reveal">One empire, three thrones — exclusive instrumentals from <strong>Reefer Beats Records</strong>, late-night plates from <strong>Reefer Bites</strong>, and gold-threaded heat from <strong>Reefer Collection Drip</strong>.</p>
+    <div class="hero-cta reveal">
+      <button class="btn gold big" data-scroll="#beats">Shop the Empire</button>
+      <button class="btn ghost big" data-scroll="#drip">Explore the Drip</button>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="stat"><b>250+</b><span>Beats Sold</span></div>
+      <div class="stat"><b>1.2K</b><span>Orders Served</span></div>
+      <div class="stat"><b>200</b><span>Collab Pieces Only</span></div>
+      <div class="stat"><b>4</b><span>Ways to Pay</span></div>
+    </div>
+  </section>
+
+  <!-- Donz&Dollz promotional banner -->
+  <section class="collab wrap" id="collab" style="padding-bottom:clamp(2rem,5vw,3.5rem)">
+    <div class="collab-card reveal">
+      <div class="collab-art"><img src="assets/donz-and-dolls-logo.jpeg" alt="Donz&amp;Dollz logo"></div>
+      <div class="collab-info">
+        <p class="eyebrow" style="justify-content:flex-start">Exclusive Collab Drop</p>
+        <h2>DONZ<span class="grad">&amp;</span>DOLLZ <em>×</em> REEFER COLLECTION DRIP</h2>
+        <p>Two empires, one uniform. Handmade denim and utility pieces from Donz&amp;Dollz — cut, stitched and numbered in Nairobi. When it's gone, it's gone.</p>
+        <div class="collab-meta"><span>Drop 12.12</span><span>200 Pieces Only</span><span>Numbered Gold Tags</span></div>
+        <button class="btn gold" data-scroll="#dnd-vault">Shop the Collab</button>
+      </div>
+    </div>
+    <div class="collab-products" id="dnd-vault">
+      <header class="sec-head reveal" style="margin-bottom:1.8rem">
+        <p class="eyebrow">The Collab Denim Vault</p>
+        <h2>THE <span class="grad">D&amp;D</span> DROP</h2>
+        <p class="sec-sub">Eight signature pieces offered by Donz&amp;Dollz × Reefer Collection Drip — each one hand-finished, gold-tagged and strictly limited.</p>
+      </header>
+      <div class="grid" id="gridCollab"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 1 — Reefer Beats Records -->
+  <section class="block wrap" id="beats">
+    <header class="sec-head reveal">
+      <p class="eyebrow">01 — The Sound</p>
+      <h2>REEFER <span class="grad">BEATS</span> RECORDS</h2>
+      <p class="sec-sub">Exclusive trap &amp; Afro-fusion instrumentals, mixed and mastered in-house. License instantly — own the moment.</p>
+    </header>
+    <div class="grid" id="gridBeats"></div>
+  </section>
+
+  <!-- SECTION 2 — Reefer Bites -->
+  <section class="block wrap" id="bites">
+    <header class="sec-head reveal">
+      <p class="eyebrow">02 — The Flavour</p>
+      <h2>REEFER <span class="grad">BITES</span></h2>
+      <p class="sec-sub">Fast food done imperial. Hot off the grill, delivered across Nairobi — gold sauce on everything.</p>
+    </header>
+    <div class="grid" id="gridBites"></div>
+  </section>
+
+  <!-- SECTION 3 — Reefer Collection Drip -->
+  <section class="block wrap" id="drip">
+    <header class="sec-head reveal">
+      <p class="eyebrow">03 — The Uniform</p>
+      <h2>REEFER <span class="grad">COLLECTION</span> DRIP</h2>
+      <p class="sec-sub">Heavyweight fabrics, gold-thread embroidery, limited runs. Featuring the Donz&amp;Dollz collaboration.</p>
+    </header>
+    <div class="grid" id="gridDrip"></div>
+  </section>
+
+  <div class="trust wrap">
+    <div class="trust-item reveal"><span class="t-ico">⚡</span><div><b>Instant Delivery</b><span>Beats &amp; drip ship same day</span></div></div>
+    <div class="trust-item reveal"><span class="t-ico">🛡️</span><div><b>Secure Payments</b><span>Bitcoin • Pi • M-Pesa • Bank</span></div></div>
+    <div class="trust-item reveal"><span class="t-ico">🚚</span><div><b>Nairobi-Wide Delivery</b><span>Free over KSh 5,000</span></div></div>
+    <div class="trust-item reveal"><span class="t-ico">💬</span><div><b>24/7 Support</b><span>WhatsApp us anytime</span></div></div>
+  </div>
+</main>
+
+<!-- ================= CHECKOUT ================= -->
+<main id="checkoutView" hidden>
+  <div class="wrap checkout">
+    <button class="back-link" id="backHome">← Back to the Empire</button>
+    <h1 class="page-title">Checkout</h1>
+    <div class="checkout-grid">
+      <form class="panel" id="checkoutForm" novalidate>
+        <h2>Delivery Details</h2>
+        <div class="field"><label for="fName">Full Name</label><input id="fName" type="text" autocomplete="name" placeholder="e.g. Brian Omondi"></div>
+        <div class="field-row">
+          <div class="field"><label for="fPhone">Phone Number</label><input id="fPhone" type="tel" autocomplete="tel" placeholder="07XX XXX XXX"></div>
+          <div class="field"><label for="fEmail">Email <span style="text-transform:none;letter-spacing:0">(optional)</span></label><input id="fEmail" type="email" autocomplete="email" placeholder="you@email.com"></div>
+        </div>
+        <div class="field"><label for="fAddr">Delivery Address</label><textarea id="fAddr" rows="2" placeholder="Estate, street, house / landmark"></textarea></div>
+
+        <h2 style="margin-top:1.4rem">Payment Method</h2>
+        <div class="pay-grid">
+          <label class="pay-tile sel">
+            <input type="radio" name="pay" value="bitcoin" checked>
+            <span class="p-ico">
+              <svg viewBox="0 0 40 40" role="img" aria-label="Bitcoin"><circle cx="20" cy="20" r="19" fill="#f7931a"/><g fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M15.6 12.6h5.6a3 3 0 0 1 0 6h-5.6z"/><path d="M15.6 18.6h6.6a3.1 3.1 0 0 1 0 6.2h-6.6z"/><path d="M15.6 12.6v12.2"/></g><g fill="#fff"><rect x="16.2" y="9.3" width="1.7" height="3.2" rx=".8"/><rect x="18.6" y="9.3" width="1.7" height="3.2" rx=".8"/><rect x="16.2" y="25" width="1.7" height="3.2" rx=".8"/><rect x="18.6" y="25" width="1.7" height="3.2" rx=".8"/></g></svg>
+            </span>
+            <span class="p-txt"><span class="p-name">Bitcoin</span><span class="p-sub">On-chain BTC payment</span></span>
+          </label>
+          <label class="pay-tile">
+            <input type="radio" name="pay" value="pi">
+            <span class="p-ico">
+              <svg viewBox="0 0 40 40" role="img" aria-label="Pi Network"><circle cx="20" cy="20" r="19" fill="#7d2ae8"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M10.5 13.8h19"/><path d="M16 13.8V27"/><path d="M24 13.8V27"/><path d="M13.6 13.8c0 2.6-.5 4.4-1.6 5.6"/></g></svg>
+            </span>
+            <span class="p-txt"><span class="p-name">Pi Network</span><span class="p-sub">Transfer from Pi wallet</span></span>
+          </label>
+          <label class="pay-tile">
+            <input type="radio" name="pay" value="mpesa">
+            <span class="p-ico">
+              <svg viewBox="0 0 40 40" role="img" aria-label="M-Pesa"><rect x="1" y="1" width="38" height="38" rx="11" fill="#20aa4f"/><text x="20" y="24.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="700" fill="#fff" textLength="30" lengthAdjust="spacingAndGlyphs">M-PESA</text></svg>
+            </span>
+            <span class="p-txt"><span class="p-name">M-Pesa</span><span class="p-sub">STK push / Paybill</span></span>
+          </label>
+          <label class="pay-tile">
+            <input type="radio" name="pay" value="bank">
+            <span class="p-ico">
+              <svg viewBox="0 0 40 40" role="img" aria-label="Bank Transfer"><circle cx="20" cy="20" r="18" fill="none" stroke="#d4af37" stroke-width="1.8"/><g fill="#f0c75e"><path d="M20 7.5 32 14.5H8Z"/><rect x="10" y="16.5" width="3" height="10"/><rect x="15.5" y="16.5" width="3" height="10"/><rect x="21.5" y="16.5" width="3" height="10"/><rect x="27" y="16.5" width="3" height="10"/><rect x="8" y="28.5" width="24" height="2.6" rx="1"/></g></svg>
+            </span>
+            <span class="p-txt"><span class="p-name">Bank Transfer</span><span class="p-sub">Direct deposit</span></span>
+          </label>
+        </div>
+        <p class="pay-note" id="payNote"></p>
+        <button type="submit" class="btn gold big w-full">Place Order — <span id="payTotal">KSh 0</span></button>
+      </form>
+
+      <aside class="panel">
+        <h2>Order Summary</h2>
+        <div id="sumItems"></div>
+        <div class="sum-row"><span>Subtotal</span><span id="sumSub">KSh 0</span></div>
+        <div class="sum-row"><span>Delivery</span><span id="sumDel">KSh 250</span></div>
+        <div class="sum-total"><span>Total</span><span id="sumTotal">KSh 0</span></div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<!-- ================= SUCCESS ================= -->
+<main id="successView" hidden>
+  <div class="wrap success">
+    <div class="check">✓</div>
+    <h1 class="page-title">Order Received, Boss.</h1>
+    <p class="success-sub">Order <strong id="orderNum" style="color:var(--gold-2)"></strong> is reserved. Complete payment to lock it in.</p>
+    <div class="panel success-panel"><p id="successInfo"></p></div>
+    <div class="success-cta">
+      <button class="btn gold" id="backHome2">Continue Shopping</button>
+      <a class="btn ghost" href="https://wa.me/254700000000" target="_blank" rel="noopener">WhatsApp Support</a>
+    </div>
+  </div>
+</main>
+
+<!-- cart drawer -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="drawer-head">
+    <h3>YOUR CART</h3>
+    <button class="icon-btn" id="closeCart" aria-label="Close cart">✕</button>
+  </div>
+  <div class="drawer-items" id="cartItems"></div>
+  <div class="drawer-foot">
+    <div class="row"><span>Subtotal</span><strong id="cartSubtotal" style="color:var(--gold-2)">KSh 0</strong></div>
+    <p class="hint" id="shipHint"></p>
+    <button class="btn gold w-full" id="goCheckout">Proceed to Checkout</button>
+  </div>
+</aside>
+
+<!-- footer -->
+<footer id="foot-contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#" style="margin-bottom:.8rem">
+          <img class="brand-logo" src="assets/reefer-route-empire-logo.png" alt="Reefer Route Empire logo">
+          <span>REEFER <span class="grad">ROUTE</span> EMPIRE</span>
+        </a>
+        <p>Premium beats, bites and drip — one empire serving sound, flavour and style across Nairobi and beyond.</p>
+        <div class="socials"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">X</a><a href="#">YouTube</a></div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="#beats">Reefer Beats Records</a>
+        <a href="#bites">Reefer Bites</a>
+        <a href="#drip">Collection Drip</a>
+        <a href="#collab">Donz&amp;Dollz Collab</a>
+        <a href="#" data-goto-checkout>Checkout</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="#">FAQs</a>
+        <a href="#">Delivery &amp; Pickup</a>
+        <a href="#">Returns</a>
+        <a href="#">Track Order</a>
+      </div>
+      <div>
+        <h4>We Accept</h4>
+        <div class="pay-icons">
+          <svg viewBox="0 0 40 40" aria-label="Bitcoin"><circle cx="20" cy="20" r="19" fill="#f7931a"/><g fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M15.6 12.6h5.6a3 3 0 0 1 0 6h-5.6z"/><path d="M15.6 18.6h6.6a3.1 3.1 0 0 1 0 6.2h-6.6z"/><path d="M15.6 12.6v12.2"/></g></svg>
+          <svg viewBox="0 0 40 40" aria-label="Pi Network"><circle cx="20" cy="20" r="19" fill="#7d2ae8"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M10.5 13.8h19"/><path d="M16 13.8V27"/><path d="M24 13.8V27"/><path d="M13.6 13.8c0 2.6-.5 4.4-1.6 5.6"/></g></svg>
+          <svg viewBox="0 0 40 40" aria-label="M-Pesa"><rect x="1" y="1" width="38" height="38" rx="11" fill="#20aa4f"/><text x="20" y="24.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="700" fill="#fff" textLength="30" lengthAdjust="spacingAndGlyphs">M-PESA</text></svg>
+          <svg viewBox="0 0 40 40" aria-label="Bank Transfer"><circle cx="20" cy="20" r="18" fill="none" stroke="#d4af37" stroke-width="1.8"/><g fill="#f0c75e"><path d="M20 7.5 32 14.5H8Z"/><rect x="10" y="16.5" width="3" height="10"/><rect x="15.5" y="16.5" width="3" height="10"/><rect x="21.5" y="16.5" width="3" height="10"/><rect x="27" y="16.5" width="3" height="10"/><rect x="8" y="28.5" width="24" height="2.6" rx="1"/></g></svg>
+        </div>
+        <p style="margin-top:.8rem;font-size:.75rem">Secured payments • 256-bit encryption</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Reefer Route Empire. All rights reserved.</span>
+      <span>In God We Trust • We Get It Done! — Est. 2014, Nairobi</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+'use strict';
+var $=function(s,c){return (c||document).querySelector(s)};
+var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+/* ---------- data ---------- */
+var PRODUCTS=[
+  // Reefer Beats Records
+  {id:'b1',cat:'beats',name:'Midnight Empire (Type Beat)',desc:'Dark 808-driven trap instrumental. Tagged preview — instant WAV + MP3 delivery on purchase.',price:2500,badge:'HOT',art:'🎧'},
+  {id:'b2',cat:'beats',name:'Golden Hour Loop Kit',desc:'40 royalty-free melodies and drum kits, recorded and mixed in the Empire vault.',price:1500,badge:'NEW',art:'🎹'},
+  {id:'b3',cat:'beats',name:'Empire Anthems Vol. 1',desc:'Our debut 8-track compilation — the definitive sound of the ROUTE.',price:999,badge:'',art:'💿'},
+  {id:'b4',cat:'beats',name:'Custom Beat Session',desc:'1-on-1 studio session. You bring the vision, we build the beat from scratch.',price:7500,badge:'LIMITED',art:'🎚️'},
+  // Reefer Bites
+  {id:'f1',cat:'bites',name:'Empire Burger Deluxe',desc:'Double beef patty, melted cheddar, signature gold sauce, toasted brioche bun.',price:550,badge:'BESTSELLER',art:'🍔'},
+  {id:'f2',cat:'bites',name:'Gold Leaf Loaded Fries',desc:'Crispy fries smothered in cheese sauce, spiced mince and spring onion.',price:300,badge:'',art:'🍟'},
+  {id:'f3',cat:'bites',name:'24K Wings (6 pc)',desc:'Honey-gold glazed wings with a kick, ranch dip on the side.',price:650,badge:'HOT',art:'🍗'},
+  {id:'f4',cat:'bites',name:'Empire Slice',desc:'Wood-fired pepperoni and mozzarella, cut heavy. One slice feeds the hunger.',price:400,badge:'',art:'🍕'},
+  // Reefer Collection Drip
+  {id:'d1',cat:'drip',name:'Reefer Monogram Hoodie',desc:'Heavyweight 400gsm fleece with gold-embroidered leaf monogram. Unisex fit.',price:3500,badge:'NEW',art:'🧥'},
+  {id:'d2',cat:'drip',name:'Donz&Dollz Collab Tee',desc:'Limited numbered collab tee — gold foil print on jet black cotton.',price:2200,badge:'D&D',art:'👕'},
+  {id:'d3',cat:'drip',name:'Empire Snapback',desc:'Structured cap with 3D gold-leaf emblem. One size, all crowns.',price:1200,badge:'',art:'🧢'},
+  {id:'d4',cat:'drip',name:'Gold Leaf Bomber',desc:'Satin bomber with ribbed cuffs and back-print Empire crest. 200 pieces only.',price:5500,badge:'LIMITED',art:'👑'},
+  // Donz&Dollz × Reefer Collection Drip — the D&D Denim Vault (handmade, numbered, above 10K)
+  {id:'c1',cat:'collab',img:'assets/donz-blue-denim.jpeg',name:'Blue Dynasty Denim',desc:'Azure heavyweight denim with the oversized utility patch pocket and the tan D&D hide patch. Hand-cut in Nairobi — numbered, never restocked.',price:11500,badge:'D&D'},
+  {id:'c2',cat:'collab',img:'assets/donz-camo-pocket-trousers.jpeg',name:'Jungle Vault Cargos',desc:'Olive drill trousers built for movement, locked down by a full camo utility pocket and the orange D&D patch. The empire grind uniform.',price:12000,badge:'D&D'},
+  {id:'c3',cat:'collab',img:'assets/donz-contrast-denim.jpeg',name:'Midnight Cartel Denim',desc:'Blackout raw denim traced in bone-white contrast stitching, with the deep utility patch pocket and embossed D&D leather patch.',price:12500,badge:'D&D'},
+  {id:'c4',cat:'collab',img:'assets/donz-double-logo-jeans.jpeg',name:'Double Cross Jorts',desc:'Knee-length dark-wash jorts stamped with twin red D&D crests, grey contrast yoke and utility straps. Loud from the back.',price:10500,badge:'D&D'},
+  {id:'c5',cat:'collab',img:'assets/donz-logo-patch-jeans.jpeg',name:'Red Ledger Denim',desc:'Jet-black denim carrying the blood-red D&D monogram embroidered across the pocket. Quiet fabric, loud signature.',price:12000,badge:'D&D'},
+  {id:'c6',cat:'collab',img:'assets/donz-patchwork-jeans.jpeg',name:'Mosaic Hustler Jeans',desc:'Four shades of denim and drill spliced into one unmistakable silhouette — the patchwork flex only Donz&Dollz would dare. Strictly limited.',price:13500,badge:'D&D'},
+  {id:'c7',cat:'collab',img:'assets/donz-two-tone-denim.jpeg',name:'Split Decision Denim',desc:'Deep indigo and ice-wash panels split at the seam, grounded by a tonal patch pocket and the signature orange D&D patch.',price:11000,badge:'D&D'},
+  {id:'c8',cat:'collab',img:'assets/donz-utility-shirt.jpeg',name:'Night Shift Utility Jacket',desc:'Boxy black shirt-jacket laced with white stitch lines, snap-button front and the D&D hide patch on the chest. Built for late nights.',price:13000,badge:'D&D'}
+];
+var CAT_CLASS={beats:'art-beats',bites:'art-bites',drip:'art-drip',collab:'art-drip'};
+var DELIVERY_FEE=250,FREE_OVER=5000;
+var PAY_INFO={
+  bitcoin:{name:'Bitcoin',note:'You will receive a BTC invoice with our wallet address and QR code. Your order confirms after 1 network confirmation.',success:'Send the exact BTC amount to the wallet address on your invoice. We verify on-chain within ~15 minutes and dispatch immediately.'},
+  pi:{name:'Pi Network',note:'Transfer the Pi equivalent of your total to @ReeferRoutEmpire on Pi Network, then share your TxID with our support line.',success:'Open Pi Network and transfer to @ReeferRoutEmpire, then share your TxID with us on WhatsApp to confirm. Your order ships on verification.'},
+  mpesa:{name:'M-Pesa',note:'An STK push will be sent to the phone number above. Enter your M-Pesa PIN to pay to Paybill 522522 — Reefer Route Empire.',success:'Check your phone for the M-Pesa STK push and enter your PIN. You will receive an instant confirmation SMS with your order number.'},
+  bank:{name:'Bank Transfer',note:'Bank: KCB Bank — Account: 1234567890 — Payee: Reefer Route Empire Ltd. Use your order number as the payment reference.',success:'Complete the transfer to KCB 1234567890 (Reefer Route Empire Ltd) using your order number as the reference. Orders dispatch once funds reflect.'}
+};
+
+/* ---------- state ---------- */
+var cart={};
+try{cart=JSON.parse(localStorage.getItem('rre-cart')||'{}')||{}}catch(e){cart={}}
+function persist(){try{localStorage.setItem('rre-cart',JSON.stringify(cart))}catch(e){}}
+function money(n){return 'KSh '+Number(n).toLocaleString('en-US')}
+function findP(id){for(var i=0;i<PRODUCTS.length;i++){if(PRODUCTS[i].id===id)return PRODUCTS[i]}return null}
+function cartEntries(){
+  return Object.keys(cart).map(function(id){return {p:findP(id),q:cart[id]}}).filter(function(e){return e.p&&e.q>0});
+}
+function subtotal(){return cartEntries().reduce(function(s,e){return s+e.p.price*e.q},0)}
+function deliveryFor(sub){return (sub===0||sub>=FREE_OVER)?0:DELIVERY_FEE}
+function count(){return Object.keys(cart).reduce(function(a,k){return a+Math.max(0,cart[k])},0)}
+
+/* ---------- render: products ---------- */
+function renderProducts(){
+  var grids={beats:$('#gridBeats'),bites:$('#gridBites'),drip:$('#gridDrip'),collab:$('#gridCollab')};
+  PRODUCTS.forEach(function(p){
+    var el=document.createElement('article');
+    el.className='card reveal';
+    var badge=p.badge?'<span class="badge'+(p.badge==='D&D'?' collab':'')+'">'+p.badge+'</span>':'';
+    var art=p.img
+      ?'<img class="card-img" src="'+p.img+'" alt="'+p.name+'" loading="lazy">'
+      :'<span class="art-emoji">'+p.art+'</span>';
+    el.innerHTML='<div class="card-art '+(p.img?'photo ':'')+CAT_CLASS[p.cat]+'">'+art+badge+'</div>'+
+      '<div class="card-body"><h3>'+p.name+'</h3><p>'+p.desc+'</p>'+
+      '<div class="card-foot"><span class="price">'+money(p.price)+'</span>'+
+      '<button class="add-btn" data-add="'+p.id+'">Add to Cart</button></div></div>';
+    grids[p.cat].appendChild(el);
+  });
+}
+
+/* ---------- render: cart ---------- */
+function renderCart(){
+  var entries=cartEntries();
+  $$('.cart-badge').forEach(function(b){b.textContent=count()});
+  var box=$('#cartItems');
+  if(!entries.length){
+    box.innerHTML='<div class="empty"><span class="big">🌿</span><p>Your cart is empty —<br>the Empire awaits.</p><button class="btn ghost" data-scroll="#beats">Start Shopping</button></div>';
+  }else{
+    box.innerHTML=entries.map(function(e){
+      var p=e.p;
+      return '<div class="cart-item">'+
+        '<div class="ci-thumb '+CAT_CLASS[p.cat]+'">'+(p.img?'<img src="'+p.img+'" alt="">':p.art)+'</div>'+
+        '<div><div class="ci-name">'+p.name+'</div><div class="ci-price">'+money(p.price)+'</div>'+
+        '<div class="qty"><button data-dec="'+p.id+'" aria-label="Decrease">−</button><span>'+e.q+'</span><button data-inc="'+p.id+'" aria-label="Increase">+</button></div></div>'+
+        '<button class="ci-remove" data-remove="'+p.id+'" aria-label="Remove '+p.name+'">✕</button></div>';
+    }).join('');
+  }
+  var sub=subtotal(),del=deliveryFor(sub);
+  $('#cartSubtotal').textContent=money(sub);
+  $('#shipHint').textContent=!sub
+    ?('Free delivery on orders over '+money(FREE_OVER))
+    :(del===0?'🎉 You unlocked free delivery!':'Add '+money(FREE_OVER-sub)+' more for free delivery');
+  $('#goCheckout').disabled=!entries.length;
+}
+
+/* ---------- render: checkout summary ---------- */
+function renderSummary(){
+  var entries=cartEntries(),sub=subtotal(),del=deliveryFor(sub);
+  $('#sumItems').innerHTML=entries.length
+    ?entries.map(function(e){return '<div class="sum-item"><span>'+e.p.name+' <b class="xq">×'+e.q+'</b></span><span>'+money(e.p.price*e.q)+'</span></div>'}).join('')
+    :'<p class="hint">Your cart is empty.</p>';
+  $('#sumSub').textContent=money(sub);
+  $('#sumDel').textContent=del===0?'FREE':money(del);
+  $('#sumTotal').textContent=money(sub+del);
+  $('#payTotal').textContent=money(sub+del);
+}
+
+/* ---------- views ---------- */
+function show(view){
+  ['homeView','checkoutView','successView'].forEach(function(v){$('#'+v).hidden=(v!==view)});
+  window.scrollTo(0,0);
+}
+
+/* ---------- drawer / nav ---------- */
+function openCart(o){
+  $('#cartDrawer').classList.toggle('open',o);
+  $('#overlay').classList.toggle('show',o);
+  document.body.classList.toggle('locked',o);
+}
+function closeNav(){
+  $('#navLinks').classList.remove('open');
+  $('#menuBtn').textContent='☰';
+  $('#menuBtn').setAttribute('aria-expanded','false');
+}
+
+/* ---------- toast ---------- */
+function toast(msg){
+  var t=$('#toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  clearTimeout(toast._t);
+  toast._t=setTimeout(function(){t.classList.remove('show')},1900);
+}
+
+/* ---------- cart ops ---------- */
+function addToCart(id){
+  cart[id]=(cart[id]||0)+1;
+  persist();renderCart();
+  var p=findP(id);
+  toast(p.art+'  '+p.name+' added to cart');
+  var b=$('#cartBtn');
+  b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump');
+}
+
+/* ---------- payment ---------- */
+function syncPayTiles(){
+  $$('.pay-tile').forEach(function(t){t.classList.toggle('sel',t.querySelector('input').checked)});
+}
+function updatePayNote(){
+  var m=$('input[name="pay"]:checked');
+  $('#payNote').textContent=m?PAY_INFO[m.value].note:'';
+}
+
+/* ---------- global click delegation ---------- */
+document.addEventListener('click',function(e){
+  var el;
+  if((el=e.target.closest('[data-add]'))){addToCart(el.getAttribute('data-add'));return}
+  if((el=e.target.closest('[data-inc]'))){var i1=el.getAttribute('data-inc');cart[i1]++;persist();renderCart();return}
+  if((el=e.target.closest('[data-dec]'))){var i2=el.getAttribute('data-dec');cart[i2]--;if(cart[i2]<=0)delete cart[i2];persist();renderCart();return}
+  if((el=e.target.closest('[data-remove]'))){delete cart[el.getAttribute('data-remove')];persist();renderCart();return}
+  if((el=e.target.closest('[data-goto-checkout]'))){
+    e.preventDefault();
+    if(!cartEntries().length){toast('Your cart is empty');openCart(true);return}
+    renderSummary();updatePayNote();syncPayTiles();show('checkoutView');return;
+  }
+  if((el=e.target.closest('[data-scroll]'))){
+    var target=$(el.getAttribute('data-scroll'));
+    if(target){
+      if(!$('#homeView').hidden===false)show('homeView');
+      if($('#homeView').hidden)show('homeView');
+      requestAnimationFrame(function(){target.scrollIntoView({behavior:'smooth'})});
+    }
+    openCart(false);closeNav();return;
+  }
+});
+
+/* nav anchors: if on checkout/success, jump home first */
+$$('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(ev){
+    var href=a.getAttribute('href');
+    if(href==='#'){ev.preventDefault();show('homeView');closeNav();return}
+    if($('#homeView').hidden){
+      ev.preventDefault();
+      show('homeView');
+      requestAnimationFrame(function(){
+        var t=$(href);if(t)t.scrollIntoView({behavior:'smooth'});
+      });
+    }else{closeNav()}
+  });
+});
+
+/* ---------- wiring ---------- */
+$('#menuBtn').addEventListener('click',function(){
+  var l=$('#navLinks');
+  var open=l.classList.toggle('open');
+  $('#menuBtn').textContent=open?'✕':'☰';
+  $('#menuBtn').setAttribute('aria-expanded',open?'true':'false');
+});
+$('#cartBtn').addEventListener('click',function(){openCart(true)});
+$('#closeCart').addEventListener('click',function(){openCart(false)});
+$('#overlay').addEventListener('click',function(){openCart(false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){openCart(false);closeNav()}});
+$('#goCheckout').addEventListener('click',function(){
+  if(!cartEntries().length){toast('Your cart is empty');return}
+  renderSummary();updatePayNote();syncPayTiles();openCart(false);show('checkoutView');
+});
+$('#backHome').addEventListener('click',function(){show('homeView')});
+$('#backHome2').addEventListener('click',function(){show('homeView')});
+$$('input[name="pay"]').forEach(function(r){
+  r.addEventListener('change',function(){syncPayTiles();updatePayNote()});
+});
+$('#checkoutForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  if(!cartEntries().length){toast('Your cart is empty');show('homeView');return}
+  var name=$('#fName').value.trim(),phone=$('#fPhone').value.trim(),addr=$('#fAddr').value.trim();
+  if(!name||!phone||!addr){toast('Please complete your delivery details');return}
+  var m=$('input[name="pay"]:checked').value;
+  var total=subtotal()+deliveryFor(subtotal());
+  $('#orderNum').textContent='RRE-'+String(Date.now()).slice(-6);
+  $('#successInfo').innerHTML='Pay <strong style="color:var(--gold-2)">'+money(total)+'</strong> via <strong style="color:var(--gold-2)">'+PAY_INFO[m].name+'</strong>. '+PAY_INFO[m].success;
+  show('successView');
+  cart={};persist();renderCart();
+});
+
+/* ---------- reveal on scroll ---------- */
+function observeReveals(){
+  if(!('IntersectionObserver' in window)){$$('.reveal').forEach(function(el){el.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}});
+  },{threshold:.12});
+  $$('.reveal').forEach(function(el,i){
+    if(!el.style.transitionDelay)el.style.transitionDelay=Math.min((i%4)*70,280)+'ms';
+    io.observe(el);
+  });
+}
+
+/* ---------- init ---------- */
+renderProducts();
+renderCart();
+syncPayTiles();
+updatePayNote();
+observeReveals();
+$('#year').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
